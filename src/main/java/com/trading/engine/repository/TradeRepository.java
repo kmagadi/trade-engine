@@ -27,7 +27,7 @@ public class TradeRepository {
             ps.setString(3, trade.getSymbol());
             ps.setInt(4, trade.getQuantity());
             ps.setDouble(5, trade.getPrice());
-            ps.setString(6, trade.getSide());
+            ps.setString(6, trade.getSide().name());
             ps.setTimestamp(7, java.sql.Timestamp.valueOf(trade.getTimestamp()));
             ps.executeUpdate();
         }

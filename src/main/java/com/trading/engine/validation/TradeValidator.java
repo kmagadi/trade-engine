@@ -9,10 +9,5 @@ public class TradeValidator {
         if (trade.getQuantity() <= 0) {
             throw new RuntimeException("Quantity must be positive");
         }
-
-        if (!trade.getSide().equalsIgnoreCase("BUY") &&
-                !trade.getSide().equalsIgnoreCase("SELL")) {
-            throw new RuntimeException("Invalid side");
-        }
     }
 }

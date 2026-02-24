@@ -2,6 +2,7 @@ package com.trading.engine.service;
 
 import com.trading.engine.model.Position;
 import com.trading.engine.model.Trade;
+import com.trading.engine.model.TradeSide;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -12,7 +13,7 @@ public class PortfolioManager {
 
     public void processTrade(Trade trade) {
 
-        int signedQty = trade.getSide().equalsIgnoreCase("SELL")
+        int signedQty = trade.getSide() == TradeSide.SELL
                 ? -trade.getQuantity()
                 : trade.getQuantity();
 

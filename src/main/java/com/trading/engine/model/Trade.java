@@ -9,7 +9,7 @@ public class Trade {
     private final String symbol;
     private final int quantity;
     private final double price;
-    private final String side;
+    private final TradeSide side;
     private final LocalDateTime timestamp;
 
     public Trade(long tradeId,
@@ -17,7 +17,7 @@ public class Trade {
                  String symbol,
                  int quantity,
                  double price,
-                 String side,
+                 TradeSide side,
                  LocalDateTime timestamp) {
 
         this.tradeId = tradeId;
@@ -34,6 +34,6 @@ public class Trade {
     public String getSymbol() { return symbol; }
     public int getQuantity() { return quantity; }
     public double getPrice() { return price; }
-    public String getSide() { return side; }
+    public TradeSide getSide() { return side; }
     public LocalDateTime getTimestamp() { return timestamp; }
 }

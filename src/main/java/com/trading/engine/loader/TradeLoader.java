@@ -7,6 +7,7 @@ import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.stream.Stream;
+import com.trading.engine.model.TradeSide;
 
 public class TradeLoader {
 
@@ -19,13 +20,13 @@ public class TradeLoader {
                     .map(arr -> {
                         try {
                             return new Trade(
-                                    Long.parseLong(arr[0].trim()),     // tradeId
-                                    arr[1].trim(),                     // accountId
-                                    arr[2].trim(),                     // symbol
-                                    Integer.parseInt(arr[3].trim()),   // quantity
-                                    Double.parseDouble(arr[4].trim()), // price
-                                    arr[5].trim(),                     // side
-                                    LocalDateTime.parse(arr[6].trim()) // timestamp
+                                    Long.parseLong(arr[0].trim()),
+                                    arr[1].trim(),
+                                    arr[2].trim(),
+                                    Integer.parseInt(arr[3].trim()),
+                                    Double.parseDouble(arr[4].trim()),
+                                    TradeSide.fromString(arr[5].trim()),
+                                    LocalDateTime.parse(arr[6].trim())
                             );
                         } catch (Exception e) {
                             System.err.println("Invalid trade row: " + String.join(",", arr));
