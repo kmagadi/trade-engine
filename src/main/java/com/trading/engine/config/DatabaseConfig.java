@@ -1,16 +1,24 @@
 package com.trading.engine.config;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
 public class DatabaseConfig {
 
-    public static Connection getConnection() throws Exception {
+    private static HikariDataSource dataSource;
 
-        return DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/trading",
-                "postgres",
-                "postgres"
-        );
+    static {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl("jdbc:postgresql://localhost:5432/trading");
+        config.setUsername("postgres");
+        config.setPassword("postgres");
+
+        config.setMaximumPoolSize(10); // tune based on threads
+
+        dataSource = new HikariDataSource(config);
+    }
+
+    public static HikariDataSource getDataSource() {
+        return dataSource;
     }
 }

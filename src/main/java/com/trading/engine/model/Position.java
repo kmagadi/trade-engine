@@ -24,4 +24,8 @@ public class Position {
     public int getQuantity() {
         return quantity;
     }
+
+    public double getAvgPrice() {
+        return avgPrice;
+    }
 }

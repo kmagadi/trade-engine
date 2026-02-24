@@ -1,0 +1,4 @@
+Enum(buy, sell)
+close db connection
+handle db connection properly(main file, where program flow is there)
+parallel processing of files(csv file)

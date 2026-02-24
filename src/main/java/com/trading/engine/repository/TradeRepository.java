@@ -2,6 +2,7 @@ package com.trading.engine.repository;
 
 import com.trading.engine.model.Trade;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -9,7 +10,7 @@ public class TradeRepository {
 
     private final Connection connection;
 
-    public TradeRepository(Connection connection) {
+    public TradeRepository(DataSource connection) {
         this.connection = connection;
     }
 
